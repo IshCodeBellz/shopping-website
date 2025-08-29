@@ -1,0 +1,436 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Sample Jean 1",
+      "category": "Jeans",
+      "price": 17.5,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "brand": "Urban Style",
+      "rating": 3.8,
+      "reviews": 5,
+      "description": "High-quality jean designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jeans1.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Sample Hoodie 2",
+      "category": "Hoodies",
+      "price": 20.0,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "StreetFit",
+      "rating": 4.1,
+      "reviews": 10,
+      "description": "High-quality hoodie designed for comfort and style.",
+      "images": [
+        "https://example.com/images/hoodies2.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sample Jacket 3",
+      "category": "Jackets",
+      "price": 22.5,
+      "currency": "GBP",
+      "inStock": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Classic Co.",
+      "rating": 4.4,
+      "reviews": 15,
+      "description": "High-quality jacket designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jackets3.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Sample Shoe 4",
+      "category": "Shoes",
+      "price": 25.0,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "brand": "TrendLab",
+      "rating": 4.7,
+      "reviews": 20,
+      "description": "High-quality shoe designed for comfort and style.",
+      "images": [
+        "https://example.com/images/shoes4.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Sample T-Shirt 5",
+      "category": "T-Shirts",
+      "price": 27.5,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Haven Wear",
+      "rating": 3.5,
+      "reviews": 25,
+      "description": "High-quality t-shirt designed for comfort and style.",
+      "images": [
+        "https://example.com/images/t-shirts5.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Sample Jean 6",
+      "category": "Jeans",
+      "price": 30.0,
+      "currency": "GBP",
+      "inStock": false,
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "brand": "Urban Style",
+      "rating": 3.8,
+      "reviews": 30,
+      "description": "High-quality jean designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jeans6.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Sample Hoodie 7",
+      "category": "Hoodies",
+      "price": 32.5,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "StreetFit",
+      "rating": 4.1,
+      "reviews": 35,
+      "description": "High-quality hoodie designed for comfort and style.",
+      "images": [
+        "https://example.com/images/hoodies7.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Sample Jacket 8",
+      "category": "Jackets",
+      "price": 35.0,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Classic Co.",
+      "rating": 4.4,
+      "reviews": 40,
+      "description": "High-quality jacket designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jackets8.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Sample Shoe 9",
+      "category": "Shoes",
+      "price": 37.5,
+      "currency": "GBP",
+      "inStock": false,
+      "sizes": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "brand": "TrendLab",
+      "rating": 4.7,
+      "reviews": 45,
+      "description": "High-quality shoe designed for comfort and style.",
+      "images": [
+        "https://example.com/images/shoes9.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Sample T-Shirt 10",
+      "category": "T-Shirts",
+      "price": 40.0,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Haven Wear",
+      "rating": 3.5,
+      "reviews": 50,
+      "description": "High-quality t-shirt designed for comfort and style.",
+      "images": [
+        "https://example.com/images/t-shirts10.jpg"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Sample Jean 11",
+      "category": "Jeans",
+      "price": 42.5,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "brand": "Urban Style",
+      "rating": 3.8,
+      "reviews": 55,
+      "description": "High-quality jean designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jeans11.jpg"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Sample Hoodie 12",
+      "category": "Hoodies",
+      "price": 45.0,
+      "currency": "GBP",
+      "inStock": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "StreetFit",
+      "rating": 4.1,
+      "reviews": 60,
+      "description": "High-quality hoodie designed for comfort and style.",
+      "images": [
+        "https://example.com/images/hoodies12.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Sample Jacket 13",
+      "category": "Jackets",
+      "price": 47.5,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Classic Co.",
+      "rating": 4.4,
+      "reviews": 65,
+      "description": "High-quality jacket designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jackets13.jpg"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Sample Shoe 14",
+      "category": "Shoes",
+      "price": 50.0,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "brand": "TrendLab",
+      "rating": 4.7,
+      "reviews": 70,
+      "description": "High-quality shoe designed for comfort and style.",
+      "images": [
+        "https://example.com/images/shoes14.jpg"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Sample T-Shirt 15",
+      "category": "T-Shirts",
+      "price": 52.5,
+      "currency": "GBP",
+      "inStock": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Haven Wear",
+      "rating": 3.5,
+      "reviews": 75,
+      "description": "High-quality t-shirt designed for comfort and style.",
+      "images": [
+        "https://example.com/images/t-shirts15.jpg"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Sample Jean 16",
+      "category": "Jeans",
+      "price": 55.0,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "brand": "Urban Style",
+      "rating": 3.8,
+      "reviews": 80,
+      "description": "High-quality jean designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jeans16.jpg"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Sample Hoodie 17",
+      "category": "Hoodies",
+      "price": 57.5,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "StreetFit",
+      "rating": 4.1,
+      "reviews": 85,
+      "description": "High-quality hoodie designed for comfort and style.",
+      "images": [
+        "https://example.com/images/hoodies17.jpg"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Sample Jacket 18",
+      "category": "Jackets",
+      "price": 60.0,
+      "currency": "GBP",
+      "inStock": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Classic Co.",
+      "rating": 4.4,
+      "reviews": 90,
+      "description": "High-quality jacket designed for comfort and style.",
+      "images": [
+        "https://example.com/images/jackets18.jpg"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Sample Shoe 19",
+      "category": "Shoes",
+      "price": 62.5,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "brand": "TrendLab",
+      "rating": 4.7,
+      "reviews": 95,
+      "description": "High-quality shoe designed for comfort and style.",
+      "images": [
+        "https://example.com/images/shoes19.jpg"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Sample T-Shirt 20",
+      "category": "T-Shirts",
+      "price": 65.0,
+      "currency": "GBP",
+      "inStock": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "brand": "Haven Wear",
+      "rating": 3.5,
+      "reviews": 100,
+      "description": "High-quality t-shirt designed for comfort and style.",
+      "images": [
+        "https://example.com/images/t-shirts20.jpg"
+      ]
+    }
+  ]
+}
