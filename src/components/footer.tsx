@@ -2,354 +2,301 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function Footer({
-  variant = "full",
-}: {
-  variant?: "full" | "compact";
-}) {
+export default function Footer() {
   return (
-    <footer className="mt-16">
-      {variant === "full" && <PaymentAndTrustStrip />}
-      {variant === "full" && <NewsletterCTA />}
-      <BottomFooter />
-      <BackToTop />
-    </footer>
-  );
-}
-
-function PaymentAndTrustStrip() {
-  const payments = [
-    "Visa",
-    "Mastercard",
-    "Amex",
-    "Apple Pay",
-    "Google Pay",
-    "PayPal",
-    "Klarna",
-  ];
-  return (
-    <div className="bg-white border-b">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
-        <ul className="flex flex-wrap items-center gap-2 sm:gap-3">
-          {payments.map((p) => (
-            <li
-              key={p}
-              className="rounded-md border px-2.5 py-1 text-xs sm:text-[13px] font-medium text-gray-700"
-            >
-              {p}
-            </li>
-          ))}
-        </ul>
-        <div className="flex items-center gap-2 text-sm text-gray-700">
-          <span className="hidden sm:inline">Great</span>
-          <span
-            aria-label="Trustpilot rating"
-            className="flex items-center gap-1"
-          >
-            <span className="inline-flex gap-0.5">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <svg
-                  key={i}
-                  viewBox="0 0 20 20"
-                  className="h-4 w-4 fill-green-500"
-                >
-                  <path d="M10 .9l2.6 5.3 5.8.9-4.2 4.1 1 5.8L10 14.8 4.8 17l1-5.8L1.6 7.1l5.8-.9L10 .9z" />
-                </svg>
-              ))}
-              <svg viewBox="0 0 20 20" className="h-4 w-4 fill-gray-300">
-                <path d="M10 .9l2.6 5.3 5.8.9-4.2 4.1 1 5.8L10 14.8 4.8 17l1-5.8L1.6 7.1l5.8-.9L10 .9z" />
-              </svg>
-            </span>
-            <span className="text-xs text-gray-500 hidden sm:inline">
-              Trustpilot
-            </span>
-          </span>
+    <footer className="bg-[#f5f6f5] text-black pt-16 pb-8 relative">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-12">
+        {/* LEFT SECTION */}
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* HELP & CONTACT */}
+          <div>
+            <h3 className="font-semibold mb-3 text-lg">HELP & CONTACT</h3>
+            <ul className="space-y-2 text-[16px]">
+              <li>
+                <Link href="#">FAQ</Link>
+              </li>
+              <li>
+                <Link href="#">Contact</Link>
+              </li>
+              <li>
+                <Link href="#">Service Guarantee</Link>
+              </li>
+              <li>
+                <Link href="#">Shipping & Delivery</Link>
+              </li>
+            </ul>
+          </div>
+          {/* PRODUCT AND CARE TIPS */}
+          <div>
+            <h3 className="font-semibold mb-3 text-lg">
+              PRODUCT AND CARE TIPS
+            </h3>
+            <ul className="space-y-2 text-[16px]">
+              <li>
+                <Link href="#">Care Tips</Link>
+              </li>
+              <li>
+                <Link href="#">Jewellery Cleaning Tips</Link>
+              </li>
+              <li>
+                <Link href="#">Shoe Care Tips</Link>
+              </li>
+              <li>
+                <Link href="#">Sunglasses guide</Link>
+              </li>
+            </ul>
+          </div>
+          {/* ABOUT FASHIONETTE */}
+          <div>
+            <h3 className="font-semibold mb-3 text-lg">ABOUT FASHIONETTE</h3>
+            <ul className="space-y-2 text-[16px]">
+              <li>
+                <Link href="#">Corporate</Link>
+              </li>
+              <li>
+                <Link href="#">Press</Link>
+              </li>
+              <li>
+                <Link href="#">Affiliate Program</Link>
+              </li>
+              <li>
+                <Link href="#">Lexicon</Link>
+              </li>
+            </ul>
+          </div>
+          {/* LEGAL INFORMATION */}
+          <div>
+            <h3 className="font-semibold mb-3 text-lg">LEGAL INFORMATION</h3>
+            <ul className="space-y-2 text-[16px]">
+              <li>
+                <Link href="#">Data Privacy</Link>
+              </li>
+              <li>
+                <Link href="#">Imprint</Link>
+              </li>
+              <li>
+                <Link href="#">Terms & Conditions</Link>
+              </li>
+              <li>
+                <Link href="#">Change cookie settings</Link>
+              </li>
+              <li>
+                <Link href="#">Eye-Able Assist</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-}
 
-function NewsletterCTA() {
-  const [dept, setDept] = React.useState<"womens" | "mens">("womens");
-  const [consent, setConsent] = React.useState(false);
-  const [email, setEmail] = React.useState("");
-  const [submitting, setSubmitting] = React.useState(false);
-  const [status, setStatus] = React.useState<null | {
-    ok: boolean;
-    msg: string;
-  }>(null);
-
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email) return;
-    try {
-      setSubmitting(true);
-      setStatus(null);
-      const res = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, dept, consent }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok) {
-        setStatus({
-          ok: true,
-          msg: data?.message || "Thanks! Please check your inbox.",
-        });
-        setEmail("");
-      } else {
-        setStatus({
-          ok: false,
-          msg: data?.error || "Something went wrong. Please try again.",
-        });
-      }
-    } catch (err) {
-      setStatus({ ok: false, msg: "Network error. Please try again." });
-    } finally {
-      setSubmitting(false);
-    }
-  }
-
-  return (
-    <section className="bg-gray-50">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 text-center">
-        <h2 className="text-2xl font-bold tracking-tight">JOIN DY OFFICIAL</h2>
-        <p className="mt-2 text-sm text-gray-600">
-          For exclusive access to top sales straight to your inbox.
-        </p>
-
-        <form
-          onSubmit={onSubmit}
-          className="mt-6 space-y-6"
-          aria-labelledby="newsletter-heading"
-        >
-          <fieldset className="flex items-center justify-center gap-6">
-            <legend className="sr-only">Preferred department</legend>
-            <label className="inline-flex items-center gap-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="dept"
-                checked={dept === "womens"}
-                onChange={() => setDept("womens")}
-                className="h-4 w-4 border-gray-300"
-              />
-              Womenswear
-            </label>
-            <label className="inline-flex items-center gap-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="dept"
-                checked={dept === "mens"}
-                onChange={() => setDept("mens")}
-                className="h-4 w-4 border-gray-300"
-              />
-              Menswear
-            </label>
-          </fieldset>
-
-          <label className="mx-auto flex max-w-xl items-start justify-center gap-2 text-xs text-gray-600">
-            <input
-              type="checkbox"
-              checked={consent}
-              onChange={(e) => setConsent(e.target.checked)}
-              className="mt-0.5 h-4 w-4 border-gray-300"
-            />
-            Allow brands I purchase to email me future offers and discounts
-          </label>
-
-          <div className="mx-auto flex max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-            <input
-              aria-label="Email address"
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Start typing your email address here..."
-              className="w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10"
-            />
-            <button
-              type="submit"
-              disabled={submitting}
-              className="inline-flex shrink-0 items-center justify-center rounded-md bg-black px-6 py-3 text-sm font-semibold text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-black/20 disabled:opacity-60"
-            >
-              {submitting ? "SIGNING UP..." : "SIGN UP"}
-            </button>
+        {/* RIGHT SECTION */}
+        <div className="flex-1 flex flex-col gap-8">
+          {/* Store Info */}
+          <div>
+            <div className="mb-2 font-semibold text-[16px]">
+              YOUR CURRENT STORE
+            </div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-2xl">🇬🇧</span>
+              <span>United Kingdom</span>
+              <button className="underline font-semibold text-black ml-2">
+                Change
+              </button>
+            </div>
+            <div className="text-sm text-gray-700 mb-6">
+              Please note that we only ship to United Kingdom (Northern Ireland
+              excluded) from www.fashionette.co.uk
+            </div>
           </div>
 
-          {status && (
-            <p
-              className={`text-sm ${
-                status.ok ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              {status.msg}
-            </p>
-          )}
-
-          <p className="text-xs text-gray-500">
-            By signing up you agree to our{" "}
-            <Link className="underline hover:text-gray-700" href="/privacy">
-              Privacy Policy
-            </Link>
-            .
-          </p>
-        </form>
-      </div>
-    </section>
-  );
-}
-
-function BottomFooter() {
-  return (
-    <div className="bg-neutral-900 text-gray-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-          <div>
-            <h3 className="text-white text-sm font-semibold tracking-wide">
-              ABOUT DY OFFICIAL SALES
-            </h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li>
-                <Link href="#" className="hover:text-white">
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Student &amp; Grad Discount
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Disabled Discount
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  NHS &amp; Key Worker Discount
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Brands A–Z
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Terms &amp; Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-            <button className="mt-4 inline-flex items-center rounded-md border border-gray-600 px-3 py-1.5 text-xs text-gray-200 hover:border-gray-400">
-              Cookie Preferences
-            </button>
+          {/* Payment and Delivery & Service & Security */}
+          <div className="grid grid-cols-1 gap-8">
+            <div>
+              <h3 className="font-semibold mb-3 text-lg">
+                PAYMENT AND DELIVERY
+              </h3>
+              <div className="flex flex-wrap items-center gap-6 mb-4">
+                <span className="text-2xl">💳</span>
+                <span className="text-2xl">🟡</span>
+                <span className="text-2xl">🟦</span>
+                <span className="text-2xl">💸</span>
+                <span className="text-2xl">🟣</span>
+                <span className="text-2xl">🟤</span>
+                <span className="text-2xl">🚚</span>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3 text-lg">SERVICE & SECURITY</h3>
+              {/* Top row: 3 columns */}
+              <div className="grid grid-cols-3 gap-4 text-center mb-3">
+                <div className="flex flex-col items-center justify-center h-full">
+                  <div className="mb-2">
+                    <Image
+                      src="/icons/promise-icon-box-free.svg"
+                      alt="Free Shipping"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <div className="text-sm">
+                    Free Standard Shipping
+                    <br />
+                    from 200 GBP
+                  </div>
+                </div>
+                <div className="flex flex-col items-center justify-center h-full">
+                  <div className="mb-2">
+                    <Image
+                      src="/icons/promise-icon-30.svg"
+                      alt="Return Policy"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <div className="text-sm">
+                    30 days free-of-charge return policy
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-2">
+                    <Image
+                      src="/icons/promise-icon-euro.svg"
+                      alt="Payment Options"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <div className="text-sm">
+                    Different payment
+                    <br />
+                    options available
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-white text-sm font-semibold tracking-wide">
-              HELP
-            </h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Help Centre
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Delivery
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Returns
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
+          {/* Trust & PayPal */}
+          <div className="grid grid-cols-3 gap-3">
+            <div className="flex flex-col items-center gap-2">
+              <div>
+                <Image
+                  src="/icons/trusted-shops.svg"
+                  alt="Trusted Shops"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div>Trusted Shops certified</div>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div>
+                <Image
+                  src="/icons/paypal.svg"
+                  alt="PayPal"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div>Pay in 3 installments</div>
+            </div>
           </div>
 
+          {/* Social Media */}
           <div>
-            <h3 className="text-white text-sm font-semibold tracking-wide">
-              FOLLOW US
-            </h3>
-            <div className="mt-4 flex items-center gap-4">
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="rounded-full border border-gray-600 p-2 hover:border-gray-400"
+            <div className="font-semibold text-sm">STAY IN CONTACT WITH US</div>
+            <div className="grid grid-cols-8">
+              <div
+                className="pr-2.5 pt-5"
+                style={{
+                  backgroundImage: "url('/icons/facebook.png')",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "contain",
+                  width: 40,
+                  height: 40,
+                }}
               >
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                  <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6-1a1 1 0 110 2 1 1 0 010-2z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="rounded-full border border-gray-600 p-2 hover:border-gray-400"
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                  <path d="M13 22v-8h3l1-4h-4V8a1 1 0 011-1h3V3h-3a5 5 0 00-5 5v2H6v4h3v8h4z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                aria-label="Pinterest"
-                className="rounded-full border border-gray-600 p-2 hover:border-gray-400"
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                  <path d="M12 2a10 10 0 00-3.5 19.4c-.1-.8-.2-2.1 0-3 .2-.8 1.3-5.3 1.3-5.3s-.3-.7-.3-1.7c0-1.6.9-2.8 2-2.8.9 0 1.3.7 1.3 1.5 0 1-.7 2.6-1 4-.3 1.2.6 2.1 1.8 2.1 2.2 0 3.8-2.3 3.8-5.6 0-2.9-2.1-4.9-5.1-4.9a5.3 5.3 0 00-5.6 5.3c0 1 .4 2.1 1 2.7.1.1.1.1.1 0l.4-1.5c0-.1 0-.2-.1-.3-.2-.5-.3-1.2-.3-1.9 0-1.8 1.3-3.6 3.7-3.6 2 0 3.4 1.3 3.4 3.2 0 2.1-1 5.5-2.6 5.5-.8 0-1.4-.6-1.2-1.4.2-.9.5-1.9.8-3 .3-1.2.6-2.4.6-3.2 0-.7-.4-1.3-1.2-1.3-1 0-1.8 1.2-1.8 2.7 0 1 .3 1.6.3 1.6l-1.2 5.1c-.2.9 0 2 0 2.8A10 10 0 1012 2z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                aria-label="X"
-                className="rounded-full border border-gray-600 p-2 hover:border-gray-400"
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                  <path d="M18 2l-5.7 7.9L19 22h-3l-4.3-7L6 22H3l6.7-9.3L5 2h3l4 6.5L16 2h2z" />
-                </svg>
-              </a>
+                {/* <Image
+                  src="/icons/facebook.png"
+                  alt="Facebook"
+                  width={40}
+                  height={40}
+                /> */}
+              </div>
+              <div className="px-2.5 pt-5">
+                <Image
+                  src="/icons/pinterest.png"
+                  alt="Pinterest"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="px-2.5 pt-5">
+                <Image
+                  src="/icons/instagram.png"
+                  alt="Instagram"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="px-2.5 pt-5">
+                <Image
+                  src="/icons/tiktok.png"
+                  alt="TikTok"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="px-2.5 pt-5">
+                <Image
+                  src="/icons/email.png"
+                  alt="Email"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="col-span-3"></div>
             </div>
           </div>
         </div>
-        <div className="mt-10 border-t border-white/10 pt-6 text-xs text-gray-500">
-          © {new Date().getFullYear()} DY Official Sales. All rights reserved.
-        </div>
       </div>
-    </div>
-  );
-}
 
-function BackToTop() {
-  return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-6 right-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-neutral-800 text-white shadow-lg ring-1 ring-white/10 hover:bg-neutral-700"
-      aria-label="Back to top"
-    >
-      <svg viewBox="0 0 24 24" className="h-6 w-6">
-        <path
-          fill="currentColor"
-          d="M12 5l7 7-1.4 1.4L13 9.8V20h-2V9.8L6.4 13.4 5 12z"
-        />
-      </svg>
-    </button>
+      {/* Copyright & Info */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 text-sm text-gray-700">
+        <div className="mb-2">
+          © {new Date().getFullYear()} – fashionette GmbH
+        </div>
+        <div className="mb-2"></div>
+        *Voucher valid until 08/09/2025 and can be used multiple times on all
+        items on the fashionette.co.uk/special-offers website. The conditions
+        set out in §9 of the Terms and Conditions apply.
+      </div>
+      <div className="mb-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-gray-700">
+        Individual brands and items may be excluded.
+      </div>
+      <div className="mb-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-gray-700">
+        Credit provided, all prices incl. VAT. and without shipping costs.
+      </div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-gray-700">
+        In the case of payment by installment, the number of installments and
+        final rates may differ slightly. The celebrities named or presented have
+        not endorsed, recommended or approved any of the items offered on site.
+      </div>
+
+      {/* Back to Top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-neutral-800 text-white shadow-lg ring-1 ring-white/10 hover:bg-neutral-700"
+        aria-label="Back to top"
+      >
+        <svg viewBox="0 0 24 24" className="h-6 w-6">
+          <path
+            fill="currentColor"
+            d="M12 5l7 7-1.4 1.4L13 9.8V20h-2V9.8L6.4 13.4 5 12z"
+          />
+        </svg>
+      </button>
+    </footer>
   );
 }
