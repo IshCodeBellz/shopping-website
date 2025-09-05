@@ -39,47 +39,66 @@ const categories = [
   },
 ];
 
-export default function Menu() {
+export default function Categories() {
   return (
-    <div className="max-w-6xl mx-auto py-10 px-4">
+    <div className="max-w-7xl mx-auto py-10 px-4">
+      {/* Top row: 4 columns */}
       <div className="grid grid-cols-4 gap-6 mb-8">
         {categories.slice(0, 4).map((cat) => (
-          <a
-            key={cat.label}
-            href="#"
-            className="relative group rounded overflow-hidden shadow hover:shadow-lg transition"
-          >
-            <Image
-              src={cat.image}
-              alt={cat.label}
-              width={400}
-              height={256}
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
-            />
-            {/* <span className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold bg-black bg-opacity-20 group-hover:bg-opacity-40 transition">
+          <div key={cat.label} className="flex flex-col items-center">
+            <a
+              href="#"
+              className="relative group rounded overflow-hidden shadow hover:shadow-lg transition flex flex-col"
+            >
+              <div
+                style={{
+                  width: "295px",
+                  height: "295px",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={cat.image}
+                  alt={cat.label}
+                  width={295}
+                  height={295}
+                  className="w-[295px] h-[295px] object-cover group-hover:scale-105 transition-transform"
+                  sizes="295px"
+                />
+                <span className="absolute inset-0 flex items-center justify-center text-white text-4xl font-semibold tracking-wide pointer-events-none">
+                  {cat.label === "NEW" || cat.label === "SALE" ? cat.label : ""}
+                </span>
+              </div>
+            </a>
+            <div className="mt-3 text-center text-base text-gray-900 font-medium">
               {cat.label}
-            </span> */}
-          </a>
+            </div>
+          </div>
         ))}
       </div>
-      <div className="grid grid-cols-3 gap-6">
+      {/* Bottom row: 3 columns, centered, minimal gap */}
+      <div className="grid grid-cols-3 gap-0 justify-items-center">
         {categories.slice(4).map((cat) => (
-          <a
-            key={cat.label}
-            href="#"
-            className="relative group rounded overflow-hidden shadow hover:shadow-lg transition"
-          >
-            <Image
-              src={cat.image}
-              alt={cat.label}
-              width={400}
-              height={256}
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
-            />
-            {/* <span className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold bg-black bg-opacity-20 group-hover:bg-opacity-40 transition">
+          <div key={cat.label} className="flex flex-col items-center">
+            <a
+              href="#"
+              className="relative group rounded overflow-hidden shadow hover:shadow-lg transition flex flex-col"
+            >
+              <Image
+                src={cat.image}
+                alt={cat.label}
+                width={295}
+                height={295}
+                className="w-[295px] h-[295px] object-cover group-hover:scale-105 transition-transform"
+              />
+              <span className="absolute inset-0 flex items-center justify-center text-white text-4xl font-semibold tracking-wide pointer-events-none">
+                {cat.label === "SALE" ? cat.label : ""}
+              </span>
+            </a>
+            <div className="mt-3 text-center text-base text-gray-900 font-medium">
               {cat.label}
-            </span> */}
-          </a>
+            </div>
+          </div>
         ))}
       </div>
     </div>

@@ -6,139 +6,215 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f5f6f5] text-black pt-16 pb-8 relative">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-12">
+    <footer className="bg-[#f5f6f5] text-black py-16 mt-5 relative">
+      <div className="grid grid-cols-3 px-5 mx-24">
         {/* LEFT SECTION */}
-        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* HELP & CONTACT */}
-          <div>
-            <h3 className="font-semibold mb-3 text-lg">HELP & CONTACT</h3>
-            <ul className="space-y-2 text-[16px]">
-              <li>
-                <Link href="#">FAQ</Link>
-              </li>
-              <li>
-                <Link href="#">Contact</Link>
-              </li>
-              <li>
-                <Link href="#">Service Guarantee</Link>
-              </li>
-              <li>
-                <Link href="#">Shipping & Delivery</Link>
-              </li>
-            </ul>
+        <div className="col-span-2 grid grid-rows-3">
+          <div className="grid grid-cols-4 gap-4 mb-10 row-span-1">
+            {/* HELP & CONTACT */}
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">HELP & CONTACT</h3>
+              <ul className="space-y-2 text-[16px]">
+                <li>
+                  <Link href="#">FAQ</Link>
+                </li>
+                <li>
+                  <Link href="#">Contact</Link>
+                </li>
+                <li>
+                  <Link href="#">Service Guarantee</Link>
+                </li>
+                <li>
+                  <Link href="#">Shipping & Delivery</Link>
+                </li>
+              </ul>
+            </div>
+            {/* PRODUCT AND CARE TIPS */}
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">
+                PRODUCT AND CARE TIPS
+              </h3>
+              <ul className="space-y-2 text-[16px]">
+                <li>
+                  <Link href="#">Care Tips</Link>
+                </li>
+                <li>
+                  <Link href="#">Jewellery Cleaning Tips</Link>
+                </li>
+                <li>
+                  <Link href="#">Shoe Care Tips</Link>
+                </li>
+                <li>
+                  <Link href="#">Sunglasses guide</Link>
+                </li>
+              </ul>
+            </div>
+            {/* ABOUT FASHIONETTE */}
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">ABOUT FASHIONETTE</h3>
+              <ul className="space-y-2 text-[16px]">
+                <li>
+                  <Link href="#">Corporate</Link>
+                </li>
+                <li>
+                  <Link href="#">Press</Link>
+                </li>
+                <li>
+                  <Link href="#">Affiliate Program</Link>
+                </li>
+                <li>
+                  <Link href="#">Lexicon</Link>
+                </li>
+              </ul>
+            </div>
+            {/* LEGAL INFORMATION */}
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">LEGAL INFORMATION</h3>
+              <ul className="space-y-2 text-[16px]">
+                <li>
+                  <Link href="#">Data Privacy</Link>
+                </li>
+                <li>
+                  <Link href="#">Imprint</Link>
+                </li>
+                <li>
+                  <Link href="#">Terms & Conditions</Link>
+                </li>
+                <li>
+                  <Link href="#">Change cookie settings</Link>
+                </li>
+                <li>
+                  <Link href="#">Eye-Able Assist</Link>
+                </li>
+              </ul>
+            </div>
           </div>
-          {/* PRODUCT AND CARE TIPS */}
-          <div>
-            <h3 className="font-semibold mb-3 text-lg">
-              PRODUCT AND CARE TIPS
-            </h3>
-            <ul className="space-y-2 text-[16px]">
-              <li>
-                <Link href="#">Care Tips</Link>
-              </li>
-              <li>
-                <Link href="#">Jewellery Cleaning Tips</Link>
-              </li>
-              <li>
-                <Link href="#">Shoe Care Tips</Link>
-              </li>
-              <li>
-                <Link href="#">Sunglasses guide</Link>
-              </li>
-            </ul>
-          </div>
-          {/* ABOUT FASHIONETTE */}
-          <div>
-            <h3 className="font-semibold mb-3 text-lg">ABOUT FASHIONETTE</h3>
-            <ul className="space-y-2 text-[16px]">
-              <li>
-                <Link href="#">Corporate</Link>
-              </li>
-              <li>
-                <Link href="#">Press</Link>
-              </li>
-              <li>
-                <Link href="#">Affiliate Program</Link>
-              </li>
-              <li>
-                <Link href="#">Lexicon</Link>
-              </li>
-            </ul>
-          </div>
-          {/* LEGAL INFORMATION */}
-          <div>
-            <h3 className="font-semibold mb-3 text-lg">LEGAL INFORMATION</h3>
-            <ul className="space-y-2 text-[16px]">
-              <li>
-                <Link href="#">Data Privacy</Link>
-              </li>
-              <li>
-                <Link href="#">Imprint</Link>
-              </li>
-              <li>
-                <Link href="#">Terms & Conditions</Link>
-              </li>
-              <li>
-                <Link href="#">Change cookie settings</Link>
-              </li>
-              <li>
-                <Link href="#">Eye-Able Assist</Link>
-              </li>
-            </ul>
+          {/* Store Info and Copyright */}
+          <div className="row-span-2">
+            {/* Store Info */}
+            <div>
+              <div className="mb-2 font-semibold text-sm">
+                YOUR CURRENT STORE
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl">🇬🇧</span>
+                <span>United Kingdom</span>
+                <button className="underline font-semibold text-black ml-2">
+                  Change
+                </button>
+              </div>
+              <div className="text-sm text-gray-700 mb-6">
+                Please note that we only ship to United Kingdom (Northern
+                Ireland excluded) from www.fashionette.co.uk
+              </div>
+            </div>
+            {/* Copyright & Info */}
+            <div className="text-sm text-gray-700">
+              <div className="mb-2">
+                © {new Date().getFullYear()} – fashionette GmbH
+              </div>
+              <div className="mb-2"></div>
+              *Voucher valid until 08/09/2025 and can be used multiple times on
+              all items on the fashionette.co.uk/special-offers website. The
+              conditions set out in §9 of the Terms and Conditions apply.
+              <div className="mt-2">
+                Individual brands and items may be excluded.
+              </div>
+              <div>
+                Credit provided, all prices incl. VAT. and without shipping
+                costs.
+              </div>
+              <div>
+                In the case of payment by installment, the number of
+                installments and final rates may differ slightly. The
+                celebrities named or presented have not endorsed, recommended or
+                approved any of the items offered on site.
+              </div>
+            </div>
           </div>
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="flex-1 flex flex-col gap-8">
-          {/* Store Info */}
-          <div>
-            <div className="mb-2 font-semibold text-[16px]">
-              YOUR CURRENT STORE
-            </div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-2xl">🇬🇧</span>
-              <span>United Kingdom</span>
-              <button className="underline font-semibold text-black ml-2">
-                Change
-              </button>
-            </div>
-            <div className="text-sm text-gray-700 mb-6">
-              Please note that we only ship to United Kingdom (Northern Ireland
-              excluded) from www.fashionette.co.uk
-            </div>
-          </div>
-
+        <div className="col-span-1 ml-16">
           {/* Payment and Delivery & Service & Security */}
           <div className="grid grid-cols-1 gap-8">
             <div>
-              <h3 className="font-semibold mb-3 text-lg">
+              <h3 className="font-semibold mb-3 text-sm">
                 PAYMENT AND DELIVERY
               </h3>
-              <div className="flex flex-wrap items-center gap-6 mb-4">
-                <span className="text-2xl">💳</span>
-                <span className="text-2xl">🟡</span>
-                <span className="text-2xl">🟦</span>
-                <span className="text-2xl">💸</span>
-                <span className="text-2xl">🟣</span>
-                <span className="text-2xl">🟤</span>
-                <span className="text-2xl">🚚</span>
+              <div className="grid grid-cols-8">
+                <span className="text-2xl px-2.5 pt-5">
+                  <Image
+                    src="/icons/visa.svg"
+                    alt="Visa"
+                    width={50}
+                    height={50}
+                  />
+                </span>
+                <span className="text-2xl px-2.5 pt-5">
+                  <Image
+                    src="/icons/mastercard.svg"
+                    alt="Mastercard"
+                    width={50}
+                    height={50}
+                  />
+                </span>
+                <span className="text-2xl px-2.5 pt-5">
+                  <Image
+                    src="/icons/americanexpress.svg"
+                    alt="American Express"
+                    width={50}
+                    height={50}
+                  />
+                </span>
+                <span className="text-2xl px-2.5 pt-5">
+                  <Image
+                    src="/icons/paypal.svg"
+                    alt="PayPal"
+                    width={50}
+                    height={50}
+                  />
+                </span>
+                <span className="text-2xl px-2.5 pt-5">
+                  <Image
+                    src="/icons/discover.svg"
+                    alt="Discover"
+                    width={50}
+                    height={50}
+                  />
+                </span>
+                <span className="text-2xl px-2.5 pt-5">
+                  <Image
+                    src="/icons/diners-club.svg"
+                    alt="Diners Club"
+                    width={50}
+                    height={50}
+                  />
+                </span>
+                <span className="text-2xl px-2.5 pt-5">
+                  <Image
+                    src="/icons/ups.svg"
+                    alt="Ups"
+                    width={50}
+                    height={50}
+                  />
+                </span>
               </div>
             </div>
+            <h3 className="font-semibold mb-3 text-sm">SERVICE & SECURITY</h3>
             <div>
-              <h3 className="font-semibold mb-3 text-lg">SERVICE & SECURITY</h3>
               {/* Top row: 3 columns */}
               <div className="grid grid-cols-3 gap-4 text-center mb-3">
                 <div className="flex flex-col items-center justify-center h-full">
-                  <div className="mb-2">
+                  <div className="mb-2 pl-2.5">
                     <Image
                       src="/icons/promise-icon-box-free.svg"
                       alt="Free Shipping"
-                      width={24}
-                      height={24}
+                      width={55}
+                      height={55}
                     />
                   </div>
-                  <div className="text-sm">
+                  <div className="text-xs">
                     Free Standard Shipping
                     <br />
                     from 200 GBP
@@ -149,11 +225,11 @@ export default function Footer() {
                     <Image
                       src="/icons/promise-icon-30.svg"
                       alt="Return Policy"
-                      width={24}
-                      height={24}
+                      width={50}
+                      height={50}
                     />
                   </div>
-                  <div className="text-sm">
+                  <div className="text-xs">
                     30 days free-of-charge return policy
                   </div>
                 </div>
@@ -162,11 +238,11 @@ export default function Footer() {
                     <Image
                       src="/icons/promise-icon-euro.svg"
                       alt="Payment Options"
-                      width={24}
-                      height={24}
+                      width={50}
+                      height={50}
                     />
                   </div>
-                  <div className="text-sm">
+                  <div className="text-xs">
                     Different payment
                     <br />
                     options available
@@ -178,27 +254,27 @@ export default function Footer() {
 
           {/* Trust & PayPal */}
           <div className="grid grid-cols-3 gap-3">
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center">
               <div>
                 <Image
                   src="/icons/trusted-shops.svg"
                   alt="Trusted Shops"
-                  width={40}
-                  height={40}
+                  width={50}
+                  height={50}
                 />
               </div>
-              <div>Trusted Shops certified</div>
+              <div className="text-xs text-center">Trusted Shops certified</div>
             </div>
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center">
               <div>
                 <Image
                   src="/icons/paypal.svg"
                   alt="PayPal"
-                  width={40}
-                  height={40}
+                  width={50}
+                  height={50}
                 />
               </div>
-              <div>Pay in 3 installments</div>
+              <div className="text-xs">Pay in 3 installments</div>
             </div>
           </div>
 
@@ -206,25 +282,15 @@ export default function Footer() {
           <div>
             <div className="font-semibold text-sm">STAY IN CONTACT WITH US</div>
             <div className="grid grid-cols-8">
-              <div
-                className="pr-2.5 pt-5"
-                style={{
-                  backgroundImage: "url('/icons/facebook.png')",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  width: 40,
-                  height: 40,
-                }}
-              >
-                {/* <Image
+              <div className="px-2.5 pt-2.5">
+                <Image
                   src="/icons/facebook.png"
                   alt="Facebook"
                   width={40}
                   height={40}
-                /> */}
+                />
               </div>
-              <div className="px-2.5 pt-5">
+              <div className="px-2.5 pt-2.5">
                 <Image
                   src="/icons/pinterest.png"
                   alt="Pinterest"
@@ -232,7 +298,7 @@ export default function Footer() {
                   height={40}
                 />
               </div>
-              <div className="px-2.5 pt-5">
+              <div className="px-2.5 pt-2.5">
                 <Image
                   src="/icons/instagram.png"
                   alt="Instagram"
@@ -240,7 +306,7 @@ export default function Footer() {
                   height={40}
                 />
               </div>
-              <div className="px-2.5 pt-5">
+              <div className="px-2.5 pt-2.5">
                 <Image
                   src="/icons/tiktok.png"
                   alt="TikTok"
@@ -248,7 +314,7 @@ export default function Footer() {
                   height={40}
                 />
               </div>
-              <div className="px-2.5 pt-5">
+              <div className="px-2.5 pt-2.5">
                 <Image
                   src="/icons/email.png"
                   alt="Email"
@@ -260,28 +326,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Copyright & Info */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 text-sm text-gray-700">
-        <div className="mb-2">
-          © {new Date().getFullYear()} – fashionette GmbH
-        </div>
-        <div className="mb-2"></div>
-        *Voucher valid until 08/09/2025 and can be used multiple times on all
-        items on the fashionette.co.uk/special-offers website. The conditions
-        set out in §9 of the Terms and Conditions apply.
-      </div>
-      <div className="mb-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-gray-700">
-        Individual brands and items may be excluded.
-      </div>
-      <div className="mb-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-gray-700">
-        Credit provided, all prices incl. VAT. and without shipping costs.
-      </div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-gray-700">
-        In the case of payment by installment, the number of installments and
-        final rates may differ slightly. The celebrities named or presented have
-        not endorsed, recommended or approved any of the items offered on site.
       </div>
 
       {/* Back to Top */}
