@@ -49,9 +49,9 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            {/* ABOUT FASHIONETTE */}
+            {/* ABOUT DY OFFICIAL */}
             <div>
-              <h3 className="font-semibold mb-3 text-sm">ABOUT FASHIONETTE</h3>
+              <h3 className="font-semibold mb-3 text-sm">ABOUT DY OFFICIAL</h3>
               <ul className="space-y-2 text-[16px]">
                 <li>
                   <Link href="#">Corporate</Link>
@@ -105,17 +105,17 @@ export default function Footer() {
               </div>
               <div className="text-sm text-gray-700 mb-6">
                 Please note that we only ship to United Kingdom (Northern
-                Ireland excluded) from www.fashionette.co.uk
+                Ireland excluded) from www.dyofficial.co.uk
               </div>
             </div>
             {/* Copyright & Info */}
             <div className="text-sm text-gray-700">
               <div className="mb-2">
-                © {new Date().getFullYear()} – fashionette GmbH
+                © {new Date().getFullYear()} – DY Official GmbH
               </div>
               <div className="mb-2"></div>
               *Voucher valid until 08/09/2025 and can be used multiple times on
-              all items on the fashionette.co.uk/special-offers website. The
+              all items on the dyofficial.co.uk/special-offers website. The
               conditions set out in §9 of the Terms and Conditions apply.
               <div className="mt-2">
                 Individual brands and items may be excluded.
@@ -208,7 +208,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center justify-center h-full">
                   <div className="mb-2 pl-2.5">
                     <Image
-                      src="/icons/promise-icon-box-free.svg"
+                      src="/icons/free-shipping.svg"
                       alt="Free Shipping"
                       width={55}
                       height={55}
@@ -223,7 +223,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center justify-center h-full">
                   <div className="mb-2">
                     <Image
-                      src="/icons/promise-icon-30.svg"
+                      src="/icons/return-policy.svg"
                       alt="Return Policy"
                       width={50}
                       height={50}
@@ -236,7 +236,7 @@ export default function Footer() {
                 <div>
                   <div className="mb-2">
                     <Image
-                      src="/icons/promise-icon-euro.svg"
+                      src="/icons/payment-options.svg"
                       alt="Payment Options"
                       width={50}
                       height={50}
