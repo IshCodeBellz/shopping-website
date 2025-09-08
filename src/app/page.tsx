@@ -1,6 +1,5 @@
 import HeroCarousel from "@/components/HeroCarosel";
 import DesignerLabels from "@/components/DesignerLabels";
-import Categories from "@/components/Categories";
 import PopularRightNow from "@/components/PopularRightNow";
 import CoachOnYourOwnTime from "@/components/CoachOnYourOwnTime";
 import { CategoryTiles } from "@/components/CatTiles";
@@ -10,6 +9,7 @@ import {
   ServiceSecurity,
 } from "@/components/ServiceItems";
 import SEOTextPage from "@/components/SEOText";
+import CatOptions from "@/components/CatOptions";
 
 // Home page matching the header/footer theme – clean, bold, image‑led
 // App Router page: place this file at app/page.tsx
@@ -18,7 +18,7 @@ export default async function Home() {
   return (
     <main className="bg-white">
       <HeroCarousel />
-      <Categories />
+      <CatOptions />
       <DesignerLabels />
       <PopularRightNow />
       <CoachOnYourOwnTime />
