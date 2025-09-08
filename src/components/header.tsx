@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SearchTrigger from "./SearchTrigger";
 
 const NAV = [
   { label: "NEW", href: "/new" },
@@ -324,12 +325,7 @@ export default function Header() {
 
         {/* Right: Search, Wishlist, Cart */}
         <div className="flex items-center gap-6">
-          <Link href="/search" aria-label="Search">
-            <svg width={24} height={24} stroke="currentColor" fill="none">
-              <circle cx="11" cy="11" r="7" strokeWidth={1.5} />
-              <path d="M20 20l-3.5-3.5" strokeWidth={1.5} />
-            </svg>
-          </Link>
+          <SearchTrigger />
           <Link href="/wishlist" aria-label="Wishlist">
             <svg width={24} height={24} stroke="currentColor" fill="none">
               <path
