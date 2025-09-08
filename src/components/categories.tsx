@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const categories = [
+const categoriesData = [
   {
     label: "NEW",
     image:
@@ -44,7 +44,7 @@ export default function Categories() {
     <div className="max-w-7xl mx-auto py-10 px-4">
       {/* Top row: 4 columns */}
       <div className="grid grid-cols-4 gap-6 mb-8">
-        {categories.slice(0, 4).map((cat) => (
+        {categoriesData.slice(0, 4).map((cat) => (
           <div key={cat.label} className="flex flex-col items-center">
             <a
               href="#"
@@ -78,7 +78,7 @@ export default function Categories() {
       </div>
       {/* Bottom row: 3 columns, centered, minimal gap */}
       <div className="grid grid-cols-3 gap-0 justify-items-center">
-        {categories.slice(4).map((cat) => (
+        {categoriesData.slice(4).map((cat) => (
           <div key={cat.label} className="flex flex-col items-center">
             <a
               href="#"
