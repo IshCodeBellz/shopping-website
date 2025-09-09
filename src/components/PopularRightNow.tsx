@@ -84,7 +84,8 @@ export default function PopularRightNow() {
     <section className="w-full flex justify-center bg-[#fafafa] py-16">
       <div className="max-w-6xl w-full">
         <h2 className="text-3xl font-light mb-8 ml-2">POPULAR RIGHT NOW</h2>
-        <div className="relative">
+        {/* Desktop / md+ : carousel-style paginated grid */}
+        <div className="hidden md:block relative">
           {/* Left arrow */}
           {canPrev && (
             <button
@@ -163,6 +164,59 @@ export default function PopularRightNow() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile / sm: static 2-column grid (no carousel) */}
+        <div className="md:hidden grid grid-cols-2 gap-4">
+          {products.map((p, i) => (
+            <div
+              key={i}
+              className="bg-white rounded flex flex-col items-center p-4 relative shadow-sm"
+            >
+              <button
+                className="absolute right-3 top-3 text-gray-400 hover:text-black"
+                aria-label="Add to wishlist"
+              >
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                  <path
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    d="M12 21s-6.5-5.7-8.5-8.2A5.5 5.5 0 0 1 12 5.5a5.5 5.5 0 0 1 8.5 7.3C18.5 15.3 12 21 12 21Z"
+                  />
+                </svg>
+              </button>
+              <div className="flex-1 flex items-center justify-center w-full mb-3">
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  width={180}
+                  height={160}
+                  className="object-contain h-36 w-auto"
+                  priority
+                />
+              </div>
+              <div className="w-full text-center">
+                <div className="font-bold text-sm mt-1 mb-1">{p.brand}</div>
+                <div className="text-gray-700 text-xs mb-1">{p.name}</div>
+                <div className="text-gray-500 text-xs mb-2">{p.type}</div>
+                <div className="flex items-center justify-center gap-2">
+                  {p.oldPrice && (
+                    <span className="text-black/60 text-sm line-through">
+                      £{p.oldPrice.toFixed(2)}
+                    </span>
+                  )}
+                  <span className="text-[#d32f2f] text-base font-semibold">
+                    £{p.price.toFixed(2)}
+                  </span>
+                  {p.discount && (
+                    <span className="text-[#d32f2f] text-sm font-medium">
+                      -{p.discount}%
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

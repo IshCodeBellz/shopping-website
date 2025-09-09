@@ -7,14 +7,16 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-[#f5f6f5] text-black py-16 mt-5 relative">
-      <div className="grid grid-cols-3 px-5 mx-24">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-20 mx-auto max-w-screen-xl">
         {/* LEFT SECTION */}
-        <div className="col-span-2 grid grid-rows-3">
-          <div className="grid grid-cols-4 gap-4 mb-10 row-span-1">
+        <div className="md:col-span-2 grid grid-rows-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {/* HELP & CONTACT */}
             <div>
-              <h3 className="font-semibold mb-3 text-sm">HELP & CONTACT</h3>
-              <ul className="space-y-2 text-[16px]">
+              <h3 className="font-semibold mb-3 text-sm text-center md:text-left">
+                HELP & CONTACT
+              </h3>
+              <ul className="space-y-2 text-sm text-center md:text-left">
                 <li>
                   <Link href="#">FAQ</Link>
                 </li>
@@ -31,10 +33,10 @@ export default function Footer() {
             </div>
             {/* PRODUCT AND CARE TIPS */}
             <div>
-              <h3 className="font-semibold mb-3 text-sm">
+              <h3 className="font-semibold mb-3 text-sm text-center md:text-left">
                 PRODUCT AND CARE TIPS
               </h3>
-              <ul className="space-y-2 text-[16px]">
+              <ul className="space-y-2 text-sm text-center md:text-left">
                 <li>
                   <Link href="#">Care Tips</Link>
                 </li>
@@ -51,8 +53,10 @@ export default function Footer() {
             </div>
             {/* ABOUT DY OFFICIAL */}
             <div>
-              <h3 className="font-semibold mb-3 text-sm">ABOUT DY OFFICIAL</h3>
-              <ul className="space-y-2 text-[16px]">
+              <h3 className="font-semibold mb-3 text-sm text-center md:text-left">
+                ABOUT DY OFFICIAL
+              </h3>
+              <ul className="space-y-2 text-sm text-center md:text-left">
                 <li>
                   <Link href="#">Corporate</Link>
                 </li>
@@ -69,8 +73,10 @@ export default function Footer() {
             </div>
             {/* LEGAL INFORMATION */}
             <div>
-              <h3 className="font-semibold mb-3 text-sm">LEGAL INFORMATION</h3>
-              <ul className="space-y-2 text-[16px]">
+              <h3 className="font-semibold mb-3 text-sm text-center md:text-left">
+                LEGAL INFORMATION
+              </h3>
+              <ul className="space-y-2 text-sm text-center md:text-left">
                 <li>
                   <Link href="#">Data Privacy</Link>
                 </li>
@@ -90,60 +96,56 @@ export default function Footer() {
             </div>
           </div>
           {/* Store Info and Copyright */}
-          <div className="row-span-2">
+          <div className="row-span-2 mt-4 md:mt-0">
             {/* Store Info */}
             <div>
-              <div className="mb-2 font-semibold text-sm">
+              <div className="mb-2 font-semibold text-sm text-center md:text-left">
                 YOUR CURRENT STORE
               </div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-2 justify-center md:justify-start">
                 <span className="text-2xl">🇬🇧</span>
                 <span>United Kingdom</span>
                 <button className="underline font-semibold text-black ml-2">
                   Change
                 </button>
               </div>
-              <div className="text-sm text-gray-700 mb-6">
+              <div className="text-sm text-gray-700 mb-6 text-center md:text-left">
                 Please note that we only ship to United Kingdom (Northern
                 Ireland excluded) from www.dyofficial.co.uk
               </div>
             </div>
             {/* Copyright & Info */}
-            <div className="text-sm text-gray-700">
+            <div className="text-sm text-gray-700 text-center md:text-left">
               <div className="mb-2">
                 © {new Date().getFullYear()} – DY Official GmbH
               </div>
               <div className="mb-2"></div>
-              *Voucher valid until 08/09/2025 and can be used multiple times on
-              all items on the dyofficial.co.uk/special-offers website. The
-              conditions set out in §9 of the Terms and Conditions apply.
-              <div className="mt-2">
-                Individual brands and items may be excluded.
-              </div>
-              <div>
-                Credit provided, all prices incl. VAT. and without shipping
-                costs.
-              </div>
-              <div>
-                In the case of payment by installment, the number of
-                installments and final rates may differ slightly. The
-                celebrities named or presented have not endorsed, recommended or
-                approved any of the items offered on site.
+              <div className="text-xs max-w-md mx-auto md:mx-0">
+                *Voucher valid until 08/09/2025 and can be used multiple times
+                on all items on the dyofficial.co.uk/special-offers website. The
+                conditions set out in §9 of the Terms and Conditions apply.
+                <div className="mt-2">
+                  Individual brands and items may be excluded.
+                </div>
+                <div>
+                  Credit provided, all prices incl. VAT. and without shipping
+                  costs.
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="col-span-1 ml-16">
+        <div className="col-span-1 md:ml-16">
           {/* Payment and Delivery & Service & Security */}
           <div className="grid grid-cols-1 gap-8">
             <div>
               <h3 className="font-semibold mb-3 text-sm">
                 PAYMENT AND DELIVERY
               </h3>
-              <div className="grid grid-cols-8">
-                <span className="text-2xl px-2.5 pt-5">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                <span className="p-1">
                   <Image
                     src="/icons/visa.svg"
                     alt="Visa"
@@ -151,7 +153,7 @@ export default function Footer() {
                     height={50}
                   />
                 </span>
-                <span className="text-2xl px-2.5 pt-5">
+                <span className="p-1">
                   <Image
                     src="/icons/mastercard.svg"
                     alt="Mastercard"
@@ -159,7 +161,7 @@ export default function Footer() {
                     height={50}
                   />
                 </span>
-                <span className="text-2xl px-2.5 pt-5">
+                <span className="p-1">
                   <Image
                     src="/icons/americanexpress.svg"
                     alt="American Express"
@@ -167,7 +169,7 @@ export default function Footer() {
                     height={50}
                   />
                 </span>
-                <span className="text-2xl px-2.5 pt-5">
+                <span className="p-1">
                   <Image
                     src="/icons/paypal.svg"
                     alt="PayPal"
@@ -175,7 +177,7 @@ export default function Footer() {
                     height={50}
                   />
                 </span>
-                <span className="text-2xl px-2.5 pt-5">
+                <span className="p-1">
                   <Image
                     src="/icons/discover.svg"
                     alt="Discover"
@@ -183,7 +185,7 @@ export default function Footer() {
                     height={50}
                   />
                 </span>
-                <span className="text-2xl px-2.5 pt-5">
+                <span className="p-1">
                   <Image
                     src="/icons/diners-club.svg"
                     alt="Diners Club"
@@ -191,7 +193,7 @@ export default function Footer() {
                     height={50}
                   />
                 </span>
-                <span className="text-2xl px-2.5 pt-5">
+                <span className="p-1">
                   <Image
                     src="/icons/ups.svg"
                     alt="Ups"
@@ -201,128 +203,114 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <h3 className="font-semibold mb-3 text-sm">SERVICE & SECURITY</h3>
-            <div>
-              {/* Top row: 3 columns */}
-              <div className="grid grid-cols-3 gap-4 text-center mb-3">
-                <div className="flex flex-col items-center justify-center h-full">
-                  <div className="mb-2 pl-2.5">
-                    <Image
-                      src="/icons/free-shipping.svg"
-                      alt="Free Shipping"
-                      width={55}
-                      height={55}
-                    />
-                  </div>
-                  <div className="text-xs">
-                    Free Standard Shipping
-                    <br />
-                    from 200 GBP
-                  </div>
+          </div>
+          <h3 className="font-semibold mb-2 text-sm">SERVICE & SECURITY</h3>
+          <div>
+            {/* Top row: 3 columns */}
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 text-center mb-3">
+              <div className="flex flex-col items-center justify-center h-full">
+                <div className="mb-2">
+                  <Image
+                    src="/icons/free-shipping.svg"
+                    alt="Free Shipping"
+                    width={55}
+                    height={55}
+                  />
                 </div>
-                <div className="flex flex-col items-center justify-center h-full">
-                  <div className="mb-2">
-                    <Image
-                      src="/icons/return-policy.svg"
-                      alt="Return Policy"
-                      width={50}
-                      height={50}
-                    />
-                  </div>
-                  <div className="text-xs">
-                    30 days free-of-charge return policy
-                  </div>
+                <div className="text-xs">
+                  Free Standard Shipping
+                  <br />
+                  from 200 GBP
                 </div>
-                <div>
-                  <div className="mb-2">
-                    <Image
-                      src="/icons/payment-options.svg"
-                      alt="Payment Options"
-                      width={50}
-                      height={50}
-                    />
-                  </div>
-                  <div className="text-xs">
-                    Different payment
-                    <br />
-                    options available
-                  </div>
+              </div>
+              <div className="flex flex-col items-center justify-center h-full">
+                <div className="mb-2">
+                  <Image
+                    src="/icons/return-policy.svg"
+                    alt="Return Policy"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className="text-xs">
+                  30 days free-of-charge return policy
+                </div>
+              </div>
+              <div className="flex flex-col items-center justify-center h-full">
+                <div className="mb-2">
+                  <Image
+                    src="/icons/payment-options.svg"
+                    alt="Payment Options"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className="text-xs">
+                  Different payment
+                  <br />
+                  options available
                 </div>
               </div>
             </div>
           </div>
-
           {/* Trust & PayPal */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className="flex flex-col items-center">
-              <div>
-                <Image
-                  src="/icons/trusted-shops.svg"
-                  alt="Trusted Shops"
-                  width={50}
-                  height={50}
-                />
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-3 justify-center items-center mb-4 max-sm:mx-[60px]">
+            <div className="col-span-2 col-start-2 flex flex-col items-center">
+              <Image
+                src="/icons/trusted-shops.svg"
+                alt="Trusted Shops"
+                width={50}
+                height={50}
+                className=" max-sm:mb-[15px] max-sm:mx-[65px]"
+              />
               <div className="text-xs text-center">Trusted Shops certified</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div>
-                <Image
-                  src="/icons/paypal.svg"
-                  alt="PayPal"
-                  width={50}
-                  height={50}
-                />
-              </div>
-              <div className="text-xs">Pay in 3 installments</div>
+            <div className="col-span-2 col-start-4 flex flex-col items-center">
+              <Image
+                src="/icons/paypal.svg"
+                alt="PayPal"
+                width={50}
+                height={50}
+                className="max-sm:mb-[15px] max-sm:mx-[65px]"
+              />
+              <div className="text-xs text-center">Pay in 3 installments</div>
             </div>
           </div>
 
           {/* Social Media */}
           <div>
             <div className="font-semibold text-sm">STAY IN CONTACT WITH US</div>
-            <div className="grid grid-cols-8">
-              <div className="px-2.5 pt-2.5">
-                <Image
-                  src="/icons/facebook.png"
-                  alt="Facebook"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <div className="px-2.5 pt-2.5">
-                <Image
-                  src="/icons/pinterest.png"
-                  alt="Pinterest"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <div className="px-2.5 pt-2.5">
-                <Image
-                  src="/icons/instagram.png"
-                  alt="Instagram"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <div className="px-2.5 pt-2.5">
-                <Image
-                  src="/icons/tiktok.png"
-                  alt="TikTok"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <div className="px-2.5 pt-2.5">
-                <Image
-                  src="/icons/email.png"
-                  alt="Email"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <div className="col-span-3"></div>
+            <div className="flex items-center justify-center gap-4 mt-3">
+              <Image
+                src="/icons/facebook.png"
+                alt="Facebook"
+                width={40}
+                height={40}
+              />
+              <Image
+                src="/icons/pinterest.png"
+                alt="Pinterest"
+                width={40}
+                height={40}
+              />
+              <Image
+                src="/icons/instagram.png"
+                alt="Instagram"
+                width={40}
+                height={40}
+              />
+              <Image
+                src="/icons/tiktok.png"
+                alt="TikTok"
+                width={40}
+                height={40}
+              />
+              <Image
+                src="/icons/email.png"
+                alt="Email"
+                width={40}
+                height={40}
+              />
             </div>
           </div>
         </div>

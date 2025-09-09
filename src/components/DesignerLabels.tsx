@@ -54,9 +54,12 @@ const designers = [
 export default function DesignerLabels() {
   return (
     <section className="w-full flex flex-col items-center py-12">
-      <div className="grid grid-cols-6 gap-x-12 gap-y-8 max-w-6xl w-full mb-10">
+      <div className="grid grid-cols-4 md:grid-cols-6 gap-x-6 md:gap-x-12 gap-y-8 max-w-6xl w-full mb-10">
         {designers.map((d) => (
-          <div key={d.name} className="flex items-center justify-center h-20">
+          <div
+            key={d.name}
+            className="flex items-center justify-center h-14 md:h-20"
+          >
             <Image
               src={d.logo}
               alt={d.name}

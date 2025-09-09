@@ -10,6 +10,7 @@ import {
 } from "@/components/ServiceItems";
 import SEOTextPage from "@/components/SEOText";
 import CatOptions from "@/components/CatOptions";
+// import Test from "@/components/Test";
 
 // Home page matching the header/footer theme – clean, bold, image‑led
 // App Router page: place this file at app/page.tsx
@@ -22,6 +23,7 @@ export default async function Home() {
       <DesignerLabels />
       <PopularRightNow />
       <CoachOnYourOwnTime />
+      {/* <Test /> */}
       {/* 1) Category Tiles */}
       <CategoryTiles
         tiles={[

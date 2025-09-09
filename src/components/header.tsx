@@ -23,6 +23,7 @@ const NAV = [
 ];
 
 export default function Header() {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   // Dropdown data for SHOES
   const shoesDropdown = {
     categories: [
@@ -307,24 +308,36 @@ export default function Header() {
       </div> */}
 
       {/* Main header */}
-      <div className="flex items-center justify-between px-8 py-6">
-        {/* Left: Account icon */}
-        <Link href="/account" className="flex items-center">
-          <svg width={24} height={24} stroke="currentColor" fill="none">
-            <circle cx="12" cy="8" r="5" strokeWidth={1.5} />
-            <path d="M20 22a8 8 0 10-16 0" strokeWidth={1.5} />
-          </svg>
-        </Link>
+      <div className="flex items-center justify-between px-4 md:px-8 py-4 md:py-6">
+        {/* Left: hamburger (mobile) and account icon */}
+        <div className="flex items-center">
+          <button
+            className="md:hidden mr-3"
+            aria-label="Open menu"
+            onClick={() => setMobileOpen(true)}
+          >
+            <svg width={24} height={24} fill="none" stroke="currentColor">
+              <path d="M3 6h18M3 12h18M3 18h18" strokeWidth={1.5} />
+            </svg>
+          </button>
+
+          <Link href="/account" className="hidden sm:flex items-center">
+            <svg width={24} height={24} stroke="currentColor" fill="none">
+              <circle cx="12" cy="8" r="5" strokeWidth={1.5} />
+              <path d="M20 22a8 8 0 10-16 0" strokeWidth={1.5} />
+            </svg>
+          </Link>
+        </div>
 
         {/* Center: Logo */}
         <Link href="/" className="flex flex-col items-center">
-          <span className="text-4xl font-serif font-normal text-gray-950 tracking-wide">
+          <span className="text-2xl md:text-4xl font-serif font-normal text-gray-950 tracking-wide">
             DY Official
           </span>
         </Link>
 
         {/* Right: Search, Wishlist, Cart */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <SearchTrigger />
           <Link href="/wishlist" aria-label="Wishlist">
             <svg width={24} height={24} stroke="currentColor" fill="none">
@@ -344,8 +357,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="flex justify-center gap-8 py-2 text-xs font-medium relative">
+      {/* Navigation - hidden on small screens */}
+      <nav className="hidden md:flex justify-center gap-8 py-2 text-xs font-medium relative">
         {NAV.map((item) => (
           <div
             key={item.label}
@@ -863,6 +876,69 @@ export default function Header() {
           </div>
         ))}
       </nav>
+
+      {/* Mobile menu overlay */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 bg-white overflow-auto">
+          <div className="flex items-center justify-between px-4 py-4 border-b">
+            <Link href="/" className="text-xl font-serif">
+              DY Official
+            </Link>
+            <div className="flex items-center gap-4">
+              <SearchTrigger />
+              <button
+                aria-label="Close menu"
+                onClick={() => setMobileOpen(false)}
+                className="p-2"
+              >
+                <svg width={24} height={24} fill="none" stroke="currentColor">
+                  <path d="M6 6l12 12M6 18L18 6" strokeWidth={1.5} />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="px-6 py-6">
+            <ul className="flex flex-col gap-4">
+              {NAV.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-lg font-medium"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-col gap-3">
+              <Link
+                href="/account"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm"
+              >
+                Account
+              </Link>
+              <Link
+                href="/wishlist"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm"
+              >
+                Wishlist
+              </Link>
+              <Link
+                href="/cart"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm"
+              >
+                Cart
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

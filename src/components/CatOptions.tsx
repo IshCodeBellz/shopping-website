@@ -42,28 +42,21 @@ const categoriesData = [
 export default function Categories() {
   return (
     <div className="max-w-7xl mx-auto py-10 px-4">
-      {/* Top row: 4 columns */}
-      <div className="grid grid-cols-4 gap-6 mb-8">
+      {/* Top row: 4 columns on md+, 1 column on mobile */}
+      <div className="grid grid-cols-2 md:grid-cols-4 sm:gap-6 gap-2.5 mb-2.5 md:mb-8">
         {categoriesData.slice(0, 4).map((cat) => (
           <div key={cat.label} className="flex flex-col items-center">
             <a
               href="#"
               className="relative group rounded overflow-hidden shadow hover:shadow-lg transition flex flex-col"
             >
-              <div
-                style={{
-                  width: "295px",
-                  height: "295px",
-                  position: "relative",
-                }}
-              >
+              <div>
                 <Image
                   src={cat.image}
                   alt={cat.label}
                   width={295}
                   height={295}
-                  className="w-[295px] h-[295px] object-cover group-hover:scale-105 transition-transform"
-                  sizes="295px"
+                  className="w-full sm:h-[295px] object-cover group-hover:scale-105 transition-transform"
                 />
                 <span className="absolute inset-0 flex items-center justify-center text-white text-4xl font-semibold tracking-wide pointer-events-none">
                   {cat.label === "NEW" || cat.label === "SALE" ? cat.label : ""}
@@ -76,24 +69,26 @@ export default function Categories() {
           </div>
         ))}
       </div>
-      {/* Bottom row: 3 columns, centered, minimal gap */}
-      <div className="grid grid-cols-3 gap-0 justify-items-center">
+      {/* Bottom row: 3 columns on md+, 1 column on mobile */}
+      <div className="grid grid-cols-2 md:grid-cols-3 sm:gap-6 gap-2.5 md:justify-items-center md:mx-32">
         {categoriesData.slice(4).map((cat) => (
-          <div key={cat.label} className="flex flex-col items-center">
+          <div key={cat.label} className="flex flex-col items-center ">
             <a
               href="#"
               className="relative group rounded overflow-hidden shadow hover:shadow-lg transition flex flex-col"
             >
-              <Image
-                src={cat.image}
-                alt={cat.label}
-                width={295}
-                height={295}
-                className="w-[295px] h-[295px] object-cover group-hover:scale-105 transition-transform"
-              />
-              <span className="absolute inset-0 flex items-center justify-center text-white text-4xl font-semibold tracking-wide pointer-events-none">
-                {cat.label === "SALE" ? cat.label : ""}
-              </span>
+              <div>
+                <Image
+                  src={cat.image}
+                  alt={cat.label}
+                  width={295}
+                  height={295}
+                  className="w-full sm:h-[295px] object-cover group-hover:scale-105 transition-transform mx-1"
+                />
+                <span className="absolute inset-0 flex items-center justify-center text-white text-4xl font-semibold tracking-wide pointer-events-none">
+                  {cat.label === "SALE" ? cat.label : ""}
+                </span>
+              </div>
             </a>
             <div className="mt-3 text-center text-base text-gray-900 font-medium">
               {cat.label}
